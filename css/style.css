@@ -1,0 +1,865 @@
+@charset "UTF-8";
+
+/* font-family: 'Nanum Brush Script', cursive;
+font-family: 'Nanum Gothic', sans-serif; */
+
+
+/* 레이아웃 */
+#wrap{}
+#header{
+    height: 325px;
+    background: url(https://media.istockphoto.com/id/982563500/ko/%EC%82%AC%EC%A7%84/%EB%B8%94%EB%9E%99-%EB%AA%A9%EC%9E%AC-%ED%85%8D%EC%8A%A4%EC%B2%98%EC%99%80.jpg?s=2048x2048&w=is&k=20&c=DZ6QXAPfZFeAANwLuOcp7-ZnRkiv7kdA9uOKLQTaQBQ=) 
+    center top;
+}
+
+#contents{}
+#footer{
+    border-top: 1px solid #eee;
+}
+
+
+
+/* contents layout */
+.cont_nav{
+    background-color: #f6fdff;
+}
+#cont_tit{
+    background-color: #eaf7fd;
+}
+
+#cont_ban{
+    background-color: #dceff7;
+}
+#cont_cont{
+    background-color: #f6fdff;
+}
+
+
+
+
+
+
+/* container */
+
+.container{
+    width: 990px;
+    margin: 0 auto;
+}
+
+/* header */
+.header{}
+.header .header-menu{
+    text-align: right;
+    /* = width: 170px;
+    margin-left: auto; */
+}
+.header .header-menu a{
+    color: #fff;
+    
+}
+
+.header .header-title{
+    text-align: center;
+}
+.header .header-title h1{
+    background-color: #4aa8d4;
+    color: #fff;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 40px;
+    display: inline-block;
+    padding: 5px 20px 6px; /* 위 좌우 아래 */
+    /* inline요소는 padding과 margin이 좌우만 적용, 상하X */
+}
+.header .header-title a{
+    display: inline-block;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 20px 6px;
+    background-color: #2698cb;
+    margin-top: -5px; /* margin은 마이너스값(음수)을 줄 수있지만 padding은 마이너스값 줄수없음 */
+}
+
+.header .header-icon{
+    text-align: center;
+    margin-top: 30px;}
+.header .header-icon a{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-image: url(../img/icon.png);
+    margin: 0 3px;
+}
+
+
+.header .header-icon .icon1{
+    background-position: 0 0;
+}
+.header .header-icon .icon2{
+    /* 포토샵에서 아이콘의 높이가 60px >> y축으로 위로 움직이면 다음 아이콘이 배치되기 때문에 -60px을 준다(위로올리면 음수) */
+    background-position: 0 -60px; /* background-position: x값 y값; */
+}
+.header .header-icon .icon3{
+    background-position: 0 -120px;
+}
+.header .header-icon .icon4{
+    background-position: 0 -180px;
+}
+
+/* x축을 앞으로 움직이면 되니깐 -60px  */
+.header .header-icon .icon1:hover{
+    background-position: -60px 0;
+}
+.header .header-icon .icon2:hover{
+    background-position: -60px -60px;
+}
+.header .header-icon .icon3:hover{
+    background-position: -60px -120px;
+}
+.header .header-icon .icon4:hover{
+    background-position: -60px -180px;
+}
+
+
+/* nav */
+.nav{
+    display: none;
+    padding: 30px 0;
+} /* display: flex; : 자식을 정렬,부모가 깨지지않는다 */
+.nav>div{
+    float: left;
+    width: 40%;
+}
+.nav>div.last{
+    width: 20%;
+}
+.nav>div h3{
+    font-size: 18px;
+    color: #25a2d0;
+    margin-bottom: 4px;
+}
+.nav>div ol{
+    overflow: hidden; /* 부모한테주면 안깨짐 */
+}
+.nav>div ol li{
+    float: left;
+    width: 50%;
+    margin-bottom: 3px;
+    position: relative;
+}
+
+.nav>div ol li::after{content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #25a2d0;
+    transform: scaleX(0); /* x 축을 따라 (수평방향)으로 요소의 크기를 조절하는 변형을 정의 */
+    /* transform-origin: left top; */ /* x값 y값 */
+    transition: 0.3s;
+}
+
+.nav>div ol li:hover::after{
+    width: 100%;
+    /* transform: scale(1); */
+}
+
+.nav>div.last ol li{
+    width: 100%;
+}
+.nav>div ol li a{}
+
+
+/* tit 나는 퍼블리셔다 */
+.tit{position: relative;}
+.tit h2{
+    font-size: 40px;
+    color: #2c94c4;
+    text-align: center;
+    font-family: 'Nanum Brush Script', cursive;
+    padding: 10px 0;
+    letter-spacing: 2px; /* 자간 */
+}
+.tit .btn{
+    position: absolute;
+    right: 0; top: 9px; /* top: 5px >> 원래 선생님이 주신것 */
+    width: 60px; height: 60px;
+    background: url(../img/icon.png) 0 -600px; /* 0 -600px >> background-position: ; */
+}
+
+.tit .btn.on{
+    background-position:  0 -660px;
+}
+
+/* banner */
+.ban{
+    padding: 24px 0 40px;
+    padding-left: 25px;
+}
+.ban img{
+    border: 4px solid #dcdcdc;
+}
+.ban img:hover{
+    /* = border: 4px solid #98dcdc; */
+    border-color: #98dcdc;
+}
+
+.ban .slick-arrow{
+    position: absolute;
+    left: -80px; top: 70px;
+    background: url(../img/icon.png);
+    width: 43px; height: 43px;
+    background-position: -150px 0;
+    text-indent: -99999em;}
+
+    /* em : 1em=slick-arrow가 가지고있는 폰트 크기
+    1rem : root자리가 가지고있는 폰트의 크기 // 실무에서는 1rem을 10px로 바꿔놓음 */
+
+
+/* .ban .slick-prev{} */
+
+
+
+.ban .slick-prev:hover{
+    background-position: -193px 0;
+}
+.ban .slick-next{
+    left: auto;
+    right: -80px;
+    background-position: -150px -43px;
+}
+.ban .slick-next:hover{
+    background-position: -193px -43px;
+}
+
+
+/* 디자이너가 폰트어썸으로 줬다면 */
+/* css에서 fontawesome을 사용하는 방법 */
+
+/* .ban .slick-arrow{
+    position: absolute;
+    left: -80px; top: 70px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    visibility: hidden;
+    font-size: 30px;
+    color: #af70b4;
+}
+
+.ban .slick-prev{}
+.ban .slick-prev::before{
+content: "\f0a8";
+visibility: visible;
+}
+
+.ban .slick-next{
+    left: auto; right: -100px;
+}
+.ban .slick-next::before{
+    content: "\f35a";
+    visibility: visible;
+} */
+
+
+.ban .slick-dots{
+    text-align: center;
+}
+.ban .slick-dots li{
+    display: inline-block;
+    margin: 5px;}
+.ban .slick-dots li button{
+    width: 15px; height: 15px;
+    background-color: #5dbfeb;
+    border-radius: 50%;
+    font-size: 0;
+    cursor: pointer;
+    transform: scaleX(1);
+    transition: 0.3s;
+}
+
+
+.ban .slick-dots li.slick-active button{
+    background-color: #2b91c8;
+    transform: scaleX(1.3); /* 1.3= 원래 크기에서 30%커진것 */
+    border-radius: 7px;
+    transform-origin: left center; /* 버튼을 클릭하면 왼쪽에서부터 오른쪽 방향으로 커진다 */
+}
+
+
+/* cont */
+
+.cont{
+    padding-top: 30px;
+}
+
+
+.cont .colum{
+    width: calc((100% - 122px)/3);
+    height: 363px;
+    float: left;
+    padding-right: 30px;
+    margin: 0 30px 30px 0;
+    border-right: 1px solid #c8c8c8;
+
+}
+
+.cont .col1{}
+.cont .col2{}
+.cont .col3{
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+.cont .col4{}
+.cont .col5{}
+.cont .col6{
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.cont .more{
+     width: 17px;
+     height: 17px;
+     background: url(../img/icon.png) -150px -90px;
+     right: 0; top: 0;
+  }
+
+.cont .colum h3{}
+
+.cont .colum h3 .ico_img{
+    background-image: url(../img/icon.png);
+    width: 60px; height: 60px;}
+
+
+
+
+.cont .col1 h3 .ico_img{background-position: 0 -240px;}
+.cont .col2 h3 .ico_img{background-position: 0 -300px;}
+.cont .col3 h3 .ico_img{background-position: 0 -360px;}
+.cont .col4 h3 .ico_img{background-position: 0 -420px;}
+.cont .col5 h3 .ico_img{background-position: 0 -480px;}
+.cont .col6 h3 .ico_img{background-position: 0 -540px;}
+
+.cont .col1 h3 .ico_img:hover{background-position: -60px -240px;}
+.cont .col2 h3 .ico_img:hover{background-position: -60px -300px;}
+.cont .col3 h3 .ico_img:hover{background-position: -60px -360px;}
+.cont .col4 h3 .ico_img:hover{background-position: -60px -420px;}
+.cont .col5 h3 .ico_img:hover{background-position: -60px -480px;}
+.cont .col6 h3 .ico_img:hover{background-position: -60px -540px;}
+
+
+
+.cont .colum h3 .ico_tit{
+    font-size: 16px; /* 원래 기본값이 16px이지만 reset에서 13px로 설정했으므로 16px을 줌으로써 크기를 조금 키운다 */
+    color: #2c94c4;
+    padding-left: 70px;
+}
+
+.cont .colum .ico_desc{
+    border-bottom: 1px solid #c8c8c8;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    padding-left: 70px;
+}
+
+
+/* 게시판 notice */
+.notice{
+    position: relative;
+}
+.col1 h4{
+    font-size: 14px;
+    color: #0093bd;
+    font-weight: bold;
+    padding-bottom: 3px;
+
+}
+.notice ul{}
+.notice ul li{
+    /* 말줄임말 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    background: url(../img/dot.gif)no-repeat 0 8px;
+    padding-left: 8px;
+}
+
+.notice ul li a{
+    font-size: 12px;}
+
+/* .col1 .more{
+    width: 17px;
+    height: 17px;
+    background: url(../img/icon.png) -150px -90px;
+    right: 0; top: 0;
+ } >> 전체에 적용되게 .cont .more로 옮김 */ 
+
+
+/* 게시판 유형2 */
+.notice2{
+    position: relative;
+    margin-top: 15px;
+}
+
+.notice2 ul{}
+.notice2 ul li{
+    overflow: hidden;
+    
+
+}
+.notice2 ul li a{
+    float: left;
+    width: 65%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.notice2 ul li a span{
+    float: right;
+    width: 30%;
+
+}
+
+
+/* notice_hover */
+.notice_hover{}
+.notice_hover h4{
+    font-size: 14px;
+    color: #0093bd;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+.notice_hover ul{
+
+}
+.notice_hover ul li{
+    float: left;
+    margin-right: 2%;
+    width: 32%;
+}
+
+.notice_hover ul li:last-child{
+    margin-right: 0;
+}
+.notice_hover ul li a{}
+.notice_hover ul li a span{
+    position: relative;
+    display: block;
+    
+}
+.notice_hover ul li a span img{
+    width: 100%;
+
+    /* 이미지 요소가 가진 공간을 없애는 방법
+    inline요소이기때문에 알 수 없는 공간이 발생한다
+    1) display: block;
+    2) vertical-align: top; */
+    display: block;
+}
+.notice_hover ul li a span em{
+    /* 영역을 안보이게 하는 방법
+    1) display: none; >> 공간이 사라지고 애니메이션 O
+    2) visibility: hidden; >> 공간을 주고 애니메이션 X
+    3) opacity: 0; >> 공간도 주고 애니메이션 O */
+    opacity: 0;
+    transition: 0.3s;
+
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%; /* = right: 0; bottom: 0; */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+
+    /* 글자 가운데 정렬 */
+    /* line-height: 92px;
+    text-align: center; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notice_hover ul li a span:hover em{opacity: 1;}
+.notice_hover ul li a strong{
+    font-size: 12px;
+    display: block;
+    padding-top: 3px;
+}
+
+
+/* notice_hover2 */
+.notice_hover2{}
+.notice_hover2 ul{}
+.notice_hover2 ul li{
+    float: left;
+    width: 32%;
+    margin-right: 2%;
+
+}
+
+/* .notice_hover2 ul li:last-child{} >> 막내
+.notice_hover2 ul li:first-child{} >> 첫째
+.notice_hover2 ul li:nth-child(4){} */
+.notice_hover2 ul li:last-child{
+    margin-right: 0;
+}
+
+
+/* Memo ::before() >> 가상요소 // html에 태그로 존재X */
+
+
+.notice_hover2 ul li a{}
+.notice_hover2 ul li a span{
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+.notice_hover2 ul li a span img{
+    width: 100%;
+    display: block;
+    
+}
+.notice_hover2 ul li a span em{
+    position: absolute;
+    bottom: -30px; left: 0;
+    /* right: 0; */ width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.3s;
+    text-align: center;
+    padding: 3px 0;
+}
+.notice_hover2 ul li a span:hover em{
+    bottom: 0;
+}
+.notice_hover2 ul li a span strong{
+    font-size: 12px; padding-top: 3px;
+    display: block;
+}
+
+
+
+/* 게시판 유형3 */
+.notice3{position: relative; /* >> 개발자모드에서 .cont .more에 보면 ir에 position: absolute;가 있기때문에 여기에도 position: relative;를 적용 */
+}
+.notice3 h4{
+    font-size: 14px;
+    color: #0093bd;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+.notice3 ul{}
+.notice3 ul li{
+    position: relative;
+    padding: 8px 0 16px 60px; /* 글자를 뒤로 밀려면 padding으로 공간주기 */
+}
+
+.notice3 ul li a{}
+.notice3 ul li a img{
+    width: 50px;
+    position: absolute;
+    left: 0; top: 0;
+}
+.notice3 ul li a strong{}
+.notice3 ul li a span{
+    display: block; /* display: block; >> strong한테 적용해도 된다 */
+    /* 말줄임말 >> block요소가 아니면 적용이 안됨 / 공간보다 텍스트가 넘칠 때 적용된다 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* 탭메뉴 */
+.tab_menu{
+    border: 1px solid #ccc;
+    height: 108px;
+    padding: 8px;
+    position: relative;
+}
+.tab_menu ul{
+    border-bottom: 1px solid #ccc; /* >> 공지사항 밑에 선(상하에 전체 적용되었다) */
+}
+.tab_menu ul li{
+    float: left;
+    border: 1px solid #ccc;
+    margin-right: -1px; /* >> 공지사항 선상자의 선이 겹쳐지기 때문에 적용함 */
+    margin-bottom: -1px;
+}
+.tab_menu ul li a{
+    display: block; /* >> 개발자모드에서보면 상하 공간이 있다 >> block요소를 적용하여 선상자(부모)안에 꽉채워준다  */
+    padding: 5px 10px;
+
+}
+
+.tab_menu ul li.active{
+    background-color: #2c94c4;
+    
+}
+
+.tab_menu ul li.active a{
+    color: #fff; /* >> 색을 따로 뺀 이유 : reset에 a태그안에 color; #222;가 적용되어있어서 */
+}
+
+
+/* 탭메뉴 > 공지사항 */
+.tab_menu ul li ul{
+    position: absolute;
+    left: 8px; top: 48px;
+    width: 270px;
+    border-bottom: none; /* >> 선이 위에만 적용되게 하기위해(밑에는 없으므로) 여기서는 none을 적용시켜준다 */
+}
+.tab_menu ul li ul li{
+    border: none;
+    float: none;
+
+    padding-left: 8px;
+
+
+
+    /* 글자 앞에 파란색 점 */
+    background: url(../img/dot.gif) no-repeat 0 8px;
+}
+.tab_menu ul li ul li a{
+    /* 말줄임말 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0 0 3px 0; /* padding: 상 우 하 좌 */
+}
+
+.tab_menu ul li.active ul li a{
+    color: #222;
+}
+
+
+/* 게시판유형4 */
+.notice4{
+    position: relative;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+}
+.notice4 h4{
+    border-bottom: 1px solid #ccc;
+    padding: 8px 10px;
+    color: #0090bd;
+}
+.notice4 h4 em{
+    color: #cf3292;
+}
+
+.notice4 ul{
+    padding: 10px;
+}
+.notice4 ul li{
+    overflow: hidden;
+}
+.notice4 ul li a{
+    float: left;
+    width: 60%;
+    /* 말줄임말 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+.notice4 ul li span{
+    float: right;
+    width: 30%;
+}
+
+.notice4 .more{
+    position: absolute;
+    background: none; /* >> 원래 있는 아이콘 안보이게 하기 */
+    width: auto;
+    height: auto;
+    right: 9px;
+    top: 9px;
+}
+
+
+/* gallery */
+.gallery{
+    position: relative;
+    border: 1px solid #ccc;
+}
+.gallery h4{
+    font-size: 14px;
+    color: #0090bd;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    padding: 10px 0 8px 11px;
+}
+.gallery .gallery_img{}
+.gallery .gallery_img img{
+    width: 100%;
+}
+.gallery .gallery_btn{
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+.gallery .gallery_btn button{
+    width: 23px;
+    height: 23px;
+    background: url(../img/icon.png);
+    cursor: pointer;
+}
+.gallery .gallery_btn button.gb_icon1{
+    background-position: -150px -120px ;
+}
+.gallery .gallery_btn button.gb_icon2{
+    background-position: -150px -143px;
+}
+.gallery .gallery_btn button.gb_icon3{
+    background-position: -150px -166px;
+}
+.gallery .gallery_btn button.gb_icon4{
+    background-position: -150px -189px;
+}
+
+.gallery .gallery_btn button.gb_icon1:hover{
+    background-position: -173px -120px ;
+}
+.gallery .gallery_btn button.gb_icon2:hover{
+    background-position: -173px -143px;
+}
+.gallery .gallery_btn button.gb_icon3:hover{
+    background-position: -173px -166px;
+}
+.gallery .gallery_btn button.gb_icon4:hover{
+    background-position: -173px -189px;
+}
+
+
+/* 로그인 */
+
+.login_wrap{
+    background-color: #f2f4f5;
+    padding: 15px;
+}
+.login_header{
+    font-size: 12px;
+    padding: 3px 0;
+}
+.login_header .lh_check{
+    float: left;
+    padding-right: 15px;
+}
+.login_header .lh_check .infor_check{
+    vertical-align: -3px;
+}
+.login_header .lh_ip{
+    float: left;
+}
+.lh_check .infor_check .lh_ip em{}
+
+.login_content{
+    position: relative;
+}
+.login_content .lc_text{}
+.login_content .lc_text .input_text{
+    width: 182px;
+    height: 16px;
+    border: 1px solid #bebebe;
+    background-color: #fff;
+    padding: 2px 5px;
+    margin-bottom: 3px;
+    outline: none;
+}
+.login_content .lc_btn{
+    position: absolute;
+    right: 0; top: 0;
+    width: 62px;
+    height: 47px;
+    background-color: #fff;
+    border: 1px solid #bebebe;   
+}
+
+.login_footer{
+    margin-top: 5px;
+}
+.login_footer ul{}
+.login_footer ul li{
+    display: inline;
+}
+
+
+/* footer */
+.footer{
+    padding: 25px 0; /* margin을 주면 병합현상이나타나 padding준다 */
+}
+.footer ul{}
+.footer ul li{
+    position: relative;
+    display: inline;
+    padding: 0 7px 0 10px;
+}
+.footer ul li::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 1px;
+    height: 12px;
+    background-color: #ccc;
+}
+.footer ul li:first-child::before{
+    width: 0;
+    height: 0;
+}
+.footer ul li a{}
+.footer ul li a strong{}
+.footer address{}
+
+
+
+/* 팝업 (col3) */
+.popup{
+    margin-top: 15px;
+}
+.popup h4{
+    font-size: 14px;
+    color: #0093bd;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+.popup ul{}
+.popup ul li{
+    width: 32.66%;
+    float: left;
+    margin-right: 1%;
+}
+.popup ul li.lightgallery{
+    margin-right: 0;
+}
+.popup ul li a{}
+.popup ul li a img{
+    width: 100%;
+}
+
+
+/* layer popup */
+#layer{
+    display: none;
+    position: fixed;
+    left: 50px;
+    top: 50px;
+    width: 700px;
+    border: 10px solid #dceff7;
+}
+#layer img{
+    width: 100%;
+    display: block;
+}
+#layer .close{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #0093bd;
+    color: #fff;
+    padding: 2px 6px;
+}
