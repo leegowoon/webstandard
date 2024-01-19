@@ -378,14 +378,14 @@ visibility: visible;
 
 }
 .notice ul{}
+.col1 ul li{background: url(../img/dot.gif)no-repeat 0 8px;
+    padding-left: 8px;}
 .notice ul li{
     /* 말줄임말 */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 
-    background: url(../img/dot.gif)no-repeat 0 8px;
-    padding-left: 8px;
 }
 
 .notice ul li a{
@@ -791,6 +791,7 @@ visibility: visible;
 /* footer */
 .footer{
     padding: 25px 0; /* margin을 주면 병합현상이나타나 padding준다 */
+    text-align: center;
 }
 .footer ul{}
 .footer ul li{
